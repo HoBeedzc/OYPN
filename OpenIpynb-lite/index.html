@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OpenIpynb lite</title>
+  <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+  <link href="./ass/css/main.css" rel="stylesheet" type="text/css" />
+  <script src="./ass/js/main.js"></script>
+</head>
+<body>
+  <p>请将您的ipynb代码复制到文本框中，或进行文件上传。</p>
+  <form action="#" method="post">
+    <input type="file" id="lite-upload-select"/>
+    <input type="submit" value="上传文件" id="lite-upload-btn"/>
+  </form>
+  <label for="lite-input">源码：</label>
+  <textarea id="lite-input" name="lite-input"></textarea>
+  <button type="button" id="lite-btn">进行分析</button>
+  <label for="lite-output">解析：</label>
+  <textarea id="lite-output" readonly="readonly" name="lite-output"></textarea>
+</body>
+</html>
