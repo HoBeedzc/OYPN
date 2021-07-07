@@ -24,6 +24,25 @@ function renderIpynbSource(){
     $("#lite-output").text(data);
 }
 
+$(function(){
+    // textarea 高度自适应 参考自：https://www.cnblogs.com/7qin/p/10660687.html
+    // 效果并不是很好
+    $.fn.autoHeight = function(){
+        function autoHeight(elem){
+            elem.style.height = 'auto';
+            elem.scrollTop = 0; //防抖动
+            elem.style.height = elem.scrollHeight + 'px';
+        }
+        this.each(function(){
+            autoHeight(this);
+            $(this).on('keyup', function(){
+                autoHeight(this);
+            });
+        });
+    }
+    $('textarea[autoHeight]').autoHeight();
+})
+
 $(document).ready(function (){
     $("#lite-upload-select").click(liteVersionCannotUploadFileAlert);
     $("#lite-upload-btn").click(liteVersionCannotUploadFileAlert);
