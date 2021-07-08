@@ -18,10 +18,32 @@ function liteVersionCannotUploadFileAlert(){
     return false;
 }
 
+function analysisIpynbSource(data){
+    var cells,j,len,lastRow;
+    var res = [];
+
+    data = $.parseJSON(data);
+    cells = data.cells;
+    console.log(cells[0]);
+    for (j = 0,len=cells.length;j<len;j++) {
+        if (cells[j].cell_type == "code" & cells[j].execution_count != null) {
+            res.push("\n##In["+ cells[j].execution_count.toString() +"]\n");
+            lastRow = cells[j].source.pop();
+            if (lastRow.charAt(lastRow.length -1) != '\n') {
+                lastRow += '\n';
+            }
+            cells[j].source.push(lastRow);
+            res.push.apply(res,cells[j].source);
+        }
+    }
+    return res;
+}
+
 function renderIpynbSource(){
-    var data;
+    var data,res;
     data = $("#lite-input").val();
-    $("#lite-output").text(data);
+    res = analysisIpynbSource(data);
+    $("#lite-output").text(res.join(''));
 }
 
 $(function(){
