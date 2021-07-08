@@ -26,16 +26,23 @@ function renderIpynbSource(){
 
 $(function(){
     // textarea 高度自适应 参考自：https://www.cnblogs.com/7qin/p/10660687.html
-    // 效果并不是很好
+    // 效果并不是很好，故结合本项目场景做出简单修改。
     $.fn.autoHeight = function(){
         function autoHeight(elem){
-            elem.style.height = 'auto';
+            if (elem.style.height < '800px') {
+                elem.style.height = '800px';
+            } else {
+                elem.style.height = 'auto';
+            }
             elem.scrollTop = 0; //防抖动
             elem.style.height = elem.scrollHeight + 'px';
         }
         this.each(function(){
             autoHeight(this);
             $(this).on('keyup', function(){
+                autoHeight(this);
+            });
+            $(this).bind('DOMNodeInserted',function (){
                 autoHeight(this);
             });
         });

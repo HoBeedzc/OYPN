@@ -1,0 +1,27 @@
+html {
+    height: auto;
+    width: auto;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+}
+
+textarea {
+    resize: none;
+    width: 900px;
+    height: 800px;
+}
+
+.input {
+    display: inline;
+    height: auto;
+    width: 500px;
+    background: antiquewhite;
+}
+
+.output {
+    display: inline;
+    background: aqua;
+}
