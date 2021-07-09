@@ -8,18 +8,20 @@
   <script src="./ass/js/main.js"></script>
 </head>
 <body>
-  <div>
-    <p>请将您的ipynb代码复制到文本框中，或进行文件上传。</p>
-  </div>
-  <div>
+  <div class="nav">
+   <div class="title">Open your ipynb!</div>
+   <div>
+    <div style="text-align: center;">请将您的ipynb源码复制到文本框或进行文件上传</div>
     <form action="#" method="post">
-      <input type="file" id="lite-upload-select"/>
-      <input type="submit" value="上传文件" id="lite-upload-btn"/>
+      <input type="file" id="lite-upload-select" class="btn"/>
+      <input type="submit" value="上传文件" id="lite-upload-btn" class="btn"/>
     </form>
+    </div>
   </div>
-  <div class="input">
-    <label for="lite-input">源码：</label>
-    <textarea id="lite-input" name="lite-input">
+  <div class="main-body">
+   <div class="input">
+     <label for="lite-input">源码：</label>
+     <textarea id="lite-input" name="lite-input">
 {
  "cells": [
   {
@@ -132,12 +134,13 @@
  "nbformat": 4,
  "nbformat_minor": 2
 }
-    </textarea>
-    <button type="button" id="lite-btn">进行分析</button>
-  </div>
-  <div class="output">
-    <label for="lite-output">解析：</label>
-    <textarea id="lite-output" readonly="readonly" name="lite-output"></textarea>
+     </textarea>
+     <button type="button" id="lite-btn" class="btn input-btn">进行分析</button>
+   </div>
+   <div class="output">
+     <label for="lite-output">解析：</label>
+     <textarea id="lite-output" readonly="readonly" name="lite-output"></textarea>
+   </div>
   </div>
 </body>
 </html>
