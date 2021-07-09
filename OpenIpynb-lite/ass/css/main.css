@@ -15,13 +15,17 @@ textarea {
 }
 
 .input {
-    display: inline-block;
+    display: flex;
     height: auto;
-    width: 500px;
+    width: auto;
     background: antiquewhite;
+    flex-direction: column;
 }
 
 .output {
-    display: inline-block;
+    display: flex;
+    height: auto;
+    width: auto;
     background: aqua;
+    flex-direction: column;
 }
