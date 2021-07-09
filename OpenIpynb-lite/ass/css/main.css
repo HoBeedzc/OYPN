@@ -15,13 +15,13 @@ textarea {
 }
 
 .input {
-    display: inline;
+    display: inline-block;
     height: auto;
     width: 500px;
     background: antiquewhite;
 }
 
 .output {
-    display: inline;
+    display: inline-block;
     background: aqua;
 }

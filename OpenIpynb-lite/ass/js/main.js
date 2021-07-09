@@ -8,7 +8,7 @@
 // HoBee's blog: http://blog.hobeedzc.cn
 // HoBee's page: http://www.hobeedzc.cn
 //
-// This project is based on JQuery 1.9.1.
+// This project is based on JQuery 3.6.0.
 //
 
 "use strict";
@@ -22,7 +22,14 @@ function analysisIpynbSource(data){
     var cells,j,len,lastRow;
     var res = [];
 
-    data = $.parseJSON(data);
+    try{
+        data = $.parseJSON(data);
+    } catch (e) {
+        console.log(e);
+        data = $.parseJSON("{}");
+        return ["解析时遇到错误，请确认格式后重新输入！"];
+    }
+    
     cells = data.cells;
     console.log(cells[0]);
     for (j = 0,len=cells.length;j<len;j++) {
@@ -49,6 +56,7 @@ function renderIpynbSource(){
 $(function(){
     // textarea 高度自适应 参考自：https://www.cnblogs.com/7qin/p/10660687.html
     // 效果并不是很好，故结合本项目场景做出简单修改。
+    // 这不是效果好不好的问题，这是根本没发用。。。，还是不搞高度自适应了
     $.fn.autoHeight = function(){
         function autoHeight(elem){
             if (elem.style.height < '800px') {
