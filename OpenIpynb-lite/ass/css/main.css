@@ -1,6 +1,12 @@
+@font-face {
+    font-family: Merriweather;
+    src: url("../font/Merriweather-Regular.ttf");
+}
+
 html {
-    height: auto;
-    width: auto;
+    height: 100%;
+    width: 100%;
+    font-family: Merriweather;
 }
 
 body {
@@ -13,6 +19,11 @@ body {
     display: inline-flex;
     font-size: 30px;
     font-weight: bolder;
+    background: #eee;
+    border-style:solid;
+    border-color:#ffede7;
+    border-width: 2px;
+    border-radius: 5px;
 }
 
 .nav {
@@ -26,7 +37,7 @@ body {
 textarea {
     resize: none;
     width: 100%;
-    height: 830px;
+    height: 85%;
     border: 1px;
     border-radius: 5px;
     background: #ffede7;
@@ -35,6 +46,7 @@ textarea {
 }
 
 .main-body {
+    height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -48,7 +60,7 @@ textarea {
 
 .input {
     display: flex;
-    height: auto;
+    height: 100%;
     width: 48%;
     /*background: antiquewhite;*/
     flex-direction: column;
@@ -56,14 +68,13 @@ textarea {
 
 .output {
     display: flex;
-    height: auto;
+    height: 100%;
     width: 48%;
     /*background: aqua;*/
     flex-direction: column;
 }
 
 .btn {
-    box-sizing: border-box;
     transition-duration: .3s;
     cursor: pointer;
     color: #333333;
@@ -75,6 +86,9 @@ textarea {
     text-decoration: none;
     font-weight: 400;
     display: inline-block;
+    border-style:solid;
+    border-color:#ffede7;
+    border-width: 2px;
     border-radius: 5px !important;
 }
 
@@ -91,4 +105,6 @@ textarea {
 label {
     margin-bottom: 5px;
     font-size: 17px;
+    border-left: 5px solid coral;
+    padding-left: 5px;
 }
