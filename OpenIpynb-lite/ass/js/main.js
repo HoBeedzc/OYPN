@@ -18,29 +18,51 @@ function liteVersionCannotUploadFileAlert(){
     return false;
 }
 
+function lastRowAddNewLine(cell) {
+    var lastRow;
+    lastRow = cell.source.pop();
+    // console.log(lastRow);
+    if (lastRow == undefined) {
+        lastRow = '\n';
+    }
+    if (lastRow.charAt(lastRow.length -1) != '\n') {
+        lastRow += '\n';
+    }
+    cell.source.push(lastRow);
+    return cell;
+}
+
 function analysisIpynbSource(data){
-    var cells,j,len,lastRow;
+    var cells,j,len;
     var res = [];
 
-    try{
+    if (!data) { // 消息为空的时候，输出空
+        return [];
+    }
+
+    try{ // 解析出错的时候，返回解析错误
         data = $.parseJSON(data);
     } catch (e) {
-        console.log(e);
         data = $.parseJSON("{}");
         return ["解析时遇到错误，请确认格式后重新输入！"];
     }
     
-    cells = data.cells;
-    console.log(cells[0]);
+    cells = data.cells; // 否则正常返回
     for (j = 0,len=cells.length;j<len;j++) {
-        if (cells[j].cell_type == "code" & cells[j].execution_count != null) {
-            res.push("\n##In["+ cells[j].execution_count.toString() +"]\n");
-            lastRow = cells[j].source.pop();
-            if (lastRow.charAt(lastRow.length -1) != '\n') {
-                lastRow += '\n';
+        if (cells[j].cell_type == "code") { // 代码单元格
+            if (cells[j].execution_count != null) {
+                res.push("\n## In["+ cells[j].execution_count.toString() +"] Code cell\n");
+            } else {
+                res.push("\n## In[ ] Code cell\n");
             }
-            cells[j].source.push(lastRow);
+            cells[j] = lastRowAddNewLine(cells[j]);
             res.push.apply(res,cells[j].source);
+        } else if (cells[j].cell_type == "markdown") { // markdowm 单元格
+            res.push("\n## Markdown cell\n");
+            cells[j] = lastRowAddNewLine(cells[j]);
+            res.push.apply(res,cells[j].source);
+        } else {
+            console.log(cells[j]);
         }
     }
     return res;
@@ -83,6 +105,7 @@ $(function(){
 $(document).ready(function (){
     $("#lite-upload-select").click(liteVersionCannotUploadFileAlert);
     $("#lite-upload-btn").click(liteVersionCannotUploadFileAlert);
+    $("#download-btn").click(liteVersionCannotUploadFileAlert);
     $("#lite-input").blur(renderIpynbSource);
     $("#lite-btn").click(renderIpynbSource);
 });

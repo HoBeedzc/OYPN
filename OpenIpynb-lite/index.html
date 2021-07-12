@@ -19,6 +19,7 @@
     </form>
     </div>
   </div>
+
   <div class="main-body">
    <div class="input">
      <label for="lite-input">源码：Source codes</label>
@@ -28,17 +29,6 @@
   {
    "cell_type": "code",
    "execution_count": 11,
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      "D:\\Downloads\\Anaconda\\anaconda\\lib\\site-packages\\pyecharts\\charts\\chart.py:14: PendingDeprecationWarning: pyecharts 所有图表类型将在 v1.9.0 版本开始强制使用 ChartItem 进行数据项配置 :)\n",
-      "  super().__init__(init_opts=init_opts)\n"
-     ]
-    }
-   ],
    "source": [
     "from pyecharts import options as opts\n",
     "from pyecharts.charts import Map\n",
@@ -57,21 +47,58 @@
     "    .set_series_opts(label_opts=opts.LabelOpts(is_show=False))\n",
     "    .render(\"map_base.html\")\n",
     ")"
-   ]
+   ],
+   "outputs": [
+    {
+     "output_type": "stream",
+     "name": "stderr",
+     "text": [
+      "D:\\Downloads\\Anaconda\\anaconda\\lib\\site-packages\\pyecharts\\charts\\chart.py:14: PendingDeprecationWarning: pyecharts 所有图表类型将在 v1.9.0 版本开始强制使用 ChartItem 进行数据项配置 :)\n",
+      "  super().__init__(init_opts=init_opts)\n"
+     ]
+    }
+   ],
+   "metadata": {}
   },
   {
    "cell_type": "code",
    "execution_count": null,
-   "metadata": {},
+   "source": [
+    "import pandas as pd # unrun"
+   ],
    "outputs": [],
-   "source": []
+   "metadata": {}
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "source": [],
+   "outputs": [],
+   "metadata": {}
+  },
+  {
+   "cell_type": "markdown",
+   "source": [
+    "# This is a Markdown"
+   ],
+   "metadata": {}
+  },
+  {
+   "cell_type": "markdown",
+   "source": [
+    "## This is a un run markdown"
+   ],
+   "metadata": {}
   },
   {
    "cell_type": "code",
    "execution_count": 6,
-   "metadata": {},
+   "source": [
+    "[list(z) for z in zip(Faker.provinces, Faker.values())]"
+   ],
    "outputs": [
     {
+     "output_type": "execute_result",
      "data": {
       "text/plain": [
        "[['广东', 84],\n",
@@ -83,21 +110,18 @@
        " ['江苏', 55]]"
       ]
      },
-     "execution_count": 6,
      "metadata": {},
-     "output_type": "execute_result"
+     "execution_count": 6
     }
    ],
-   "source": [
-    "[list(z) for z in zip(Faker.provinces, Faker.values())]"
-   ]
+   "metadata": {}
   },
   {
    "cell_type": "code",
    "execution_count": null,
-   "metadata": {},
+   "source": [],
    "outputs": [],
-   "source": []
+   "metadata": {}
   }
  ],
  "metadata": {
@@ -141,7 +165,19 @@
    <div class="output">
      <label for="lite-output">解析：Your iPython notebook cells</label>
      <textarea id="lite-output" readonly="readonly" name="lite-output"></textarea>
+     <button type="button" id="download-btn" class="btn input-btn">导出py文件</button>
    </div>
   </div>
+
+ <footer>
+  如果您在使用过程中遇到任何问题请联系：<a href="mailto:oypn@hobeedzc.cn">OYPN@hobeedzc.cn</a> ，我们将在第一时间与您取得联系，感谢您的支持！<br>
+  友情链接：
+  <a href="https://github.com/HoBeedzc"> GitHub</a>
+  <a href="https://blog.hobeedzc.cn/"> Blog</a>
+  <a href="https://www.zhihu.com/people/hobeedzc"> ZhiHu</a>
+  <a href="https://space.bilibili.com/246546608"> BiliBili</a>
+  <br>
+  (C) copyright 2021 HoBee Tech Co. All rights reversed. 京 ICP 备：2021006481 号 - 1
+ </footer>
 </body>
 </html>
