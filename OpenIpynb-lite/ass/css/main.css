@@ -3,6 +3,16 @@
     src: url("../font/Merriweather-Regular.ttf");
 }
 
+@font-face {
+    font-family: Lato;
+    src: url("../font/Lato-Regular.ttf");
+}
+
+@font-face {
+    font-family: OpenSans;
+    src: url("../font/OpenSans-Regular.ttf");
+}
+
 html {
     height: 100%;
     width: 100%;
