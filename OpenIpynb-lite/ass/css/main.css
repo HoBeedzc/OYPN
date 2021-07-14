@@ -53,6 +53,18 @@ textarea {
     background: #ffede7;
     scrollbar-arrow-color:yellow;
     scrollbar-base-color:lightsalmon;
+    font-family: OpenSans;
+}
+
+.lite-output {
+    width: 100%;
+    height: 100%;
+    border: 1px;
+    border-radius: 5px;
+    background: #ffede7;
+    scrollbar-arrow-color:yellow;
+    scrollbar-base-color:lightsalmon;
+    font-family: OpenSans;
 }
 
 .main-body {

@@ -7,6 +7,8 @@
   <link rel="shortcut icon" href="./ass/ico/OYPN.ico">
   <link href="./ass/css/main.css" rel="stylesheet" type="text/css" />
   <script src="./ass/js/main.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js"></script>
 </head>
 <body>
   <div class="nav">
@@ -164,7 +166,7 @@
    </div>
    <div class="output">
      <label for="lite-output">解析：Your iPython notebook cells</label>
-     <textarea id="lite-output" readonly="readonly" name="lite-output"></textarea>
+     <div class="code" id="lite-output" readonly="readonly" name="lite-output"></div>
      <button type="button" id="download-btn" class="btn input-btn">导出py文件</button>
    </div>
   </div>
