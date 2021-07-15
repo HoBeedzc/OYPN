@@ -56,6 +56,12 @@ textarea {
     font-family: OpenSans;
 }
 
+#lite-input:focus {
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    box-shadow: inset 0 2px 2px rgba(0, 0, 0, .075), 0 0 10px rgb(255, 123, 0);
+    outline: none !important;
+}
+
 .lite-output {
     width: 100%;
     height: 100%;
