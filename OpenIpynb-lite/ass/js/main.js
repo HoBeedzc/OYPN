@@ -108,10 +108,29 @@ $(function(){
     $('textarea[autoHeight]').autoHeight();
 })
 
+function fileUploadButtonReload() { // 文件上传按钮重载
+    $("#lite-upload-select").click();
+    $("#lite-upload-select").bind("input propertychange",fileUploadButtonReloadName);
+}
+
+function fileUploadButtonReloadName() {
+    var filepath,filename;
+    filepath = $("#lite-upload-select").val();
+    filename = filepath.substring(filepath.lastIndexOf("\\")+1); 
+    if (filename) {
+        $("#lite-upload-select-file-name").text("已选择文件:" + filename);
+        $("#lite-upload-select-div").text("更改或取消选择");
+    } else {
+        $("#lite-upload-select-file-name").text("未选择任何文件");
+        $("#lite-upload-select-div").text("选择文件");
+    }
+    
+} 
+
 $(document).ready(function (){
-    $("#lite-upload-select").click(liteVersionCannotUploadFileAlert);
     $("#lite-upload-btn").click(liteVersionCannotUploadFileAlert);
     $("#download-btn").click(liteVersionCannotUploadFileAlert);
+    $("#lite-upload-select-div").click(fileUploadButtonReload);
     $("#lite-input").keyup(renderIpynbSource);
     $("#lite-input").blur(renderIpynbSource);
     $("#lite-btn").click(renderIpynbSource);
