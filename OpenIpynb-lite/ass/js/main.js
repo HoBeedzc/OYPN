@@ -14,7 +14,7 @@
 "use strict";
 
 function liteVersionCannotUploadFileAlert(){
-    alert("您正在使用lite版，其为全前端实现版本，暂不支持该功能。\n如需进行文件上传分析，请使用标准版或 pro 版");
+    alert("您正在使用的 OYPN Lite 暂不支持该功能。\n如需进行文件上传，请使用 OYPN 或 OYPN Pro");
     return false;
 }
 
@@ -113,5 +113,6 @@ $(document).ready(function (){
     $("#lite-upload-btn").click(liteVersionCannotUploadFileAlert);
     $("#download-btn").click(liteVersionCannotUploadFileAlert);
     $("#lite-input").keyup(renderIpynbSource);
+    $("#lite-input").blur(renderIpynbSource);
     $("#lite-btn").click(renderIpynbSource);
 });
