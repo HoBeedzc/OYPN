@@ -31,7 +31,7 @@
   <div class="main-body">
    <div class="input">
      <label for="lite-input">源码：Your source codes here</label>
-     <textarea id="lite-input" name="lite-input">
+     <textarea id="lite-input" name="lite-input" placeholder="在此粘贴 iPynb 源码...">
 {
  "cells": [
   {
@@ -168,12 +168,18 @@
  "nbformat_minor": 2
 }
      </textarea>
-     <button type="button" id="lite-btn" class="btn input-btn">进行分析</button>
+     <div id="input-btns">
+      <button type="button" id="input-btn-example" class="btn input-btn">示例</button>
+      <button type="button" id="input-btn-parse" class="btn input-btn">解析</button>
+      <button type="button" id="input-btn-cleanup" class="btn input-btn">清空</button>
+     </div>
    </div>
    <div class="output">
      <label for="lite-output">解析：Your iPython notebook cells</label>
-     <div class="code" id="lite-output" readonly="readonly" name="lite-output"></div>
-     <button type="button" id="download-btn" class="btn input-btn">导出py文件</button>
+     <div id="lite-output" readonly="readonly" name="lite-output"> 在此显示解析后的结果... </div>
+     <div id="input-btns">
+      <button type="button" id="output-btn-download" class="btn input-btn">导出</button>
+     </div>
    </div>
   </div>
 

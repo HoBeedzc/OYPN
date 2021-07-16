@@ -23,10 +23,10 @@ function lastRowAddNewLine(cell) {
     lastRow = cell.source.pop();
     // console.log(lastRow);
     if (lastRow == undefined) {
-        lastRow = '<br>';
+        lastRow = '\n</div>';
     }
-    if (lastRow.charAt(lastRow.length -1) != '<br>') {
-        lastRow += '<br>';
+    if (lastRow.charAt(lastRow.length -1) != '\n</div>') {
+        lastRow += '<br></div>';
     }
     cell.source.push(lastRow);
     return cell;
@@ -51,14 +51,14 @@ function analysisIpynbSource(data){
     for (j = 0,len=cells.length;j<len;j++) {
         if (cells[j].cell_type == "code") { // 代码单元格
             if (cells[j].execution_count != null) {
-                res.push("<br>## In["+ cells[j].execution_count.toString() +"] Code cell<br>");
+                res.push("<div class=\"code language-python\">## In["+ cells[j].execution_count.toString() +"] Code cell\n");
             } else {
-                res.push("<br>## In[ ] Code cell<br>");
+                res.push("<div class=\"code language-python\">## In[ ] Code cell\n");
             }
             cells[j] = lastRowAddNewLine(cells[j]);
             res.push.apply(res,cells[j].source);
         } else if (cells[j].cell_type == "markdown") { // markdowm 单元格
-            res.push("<br>## Markdown cell<br>");
+            res.push("<div class=\"code language-markdown \">## Markdown cell\n");
             cells[j] = lastRowAddNewLine(cells[j]);
             res.push.apply(res,cells[j].source);
         } else {
@@ -73,7 +73,12 @@ function renderIpynbSource(){
     data = $("#lite-input").val();
     res = analysisIpynbSource(data);
     $("#lite-output").empty();
-    $("#lite-output").append(res.join(''));
+    if (res.join('') != '') {
+        $("#lite-output").append(res.join('<br>'));
+    } else {
+        $("#lite-output").append("在此显示解析后的结果...");
+    }
+    
     // first, find all the div.code blocks
     document.querySelectorAll('div.code').forEach(el => {
         // then highlight each
@@ -127,11 +132,17 @@ function fileUploadButtonReloadName() {
     
 } 
 
+function clearupInputTextArea() {
+    $("#lite-input").val('');
+    renderIpynbSource();
+}
+
 $(document).ready(function (){
     $("#lite-upload-btn").click(liteVersionCannotUploadFileAlert);
-    $("#download-btn").click(liteVersionCannotUploadFileAlert);
+    $("#output-btn-download").click(liteVersionCannotUploadFileAlert);
     $("#lite-upload-select-div").click(fileUploadButtonReload);
     $("#lite-input").keyup(renderIpynbSource);
     $("#lite-input").blur(renderIpynbSource);
-    $("#lite-btn").click(renderIpynbSource);
+    $("#input-btn-parse").click(renderIpynbSource);
+    $("#input-btn-cleanup").click(clearupInputTextArea);
 });
