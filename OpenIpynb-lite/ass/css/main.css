@@ -113,7 +113,7 @@ textarea {
 .output {
     display: flex;
     height: 100%;
-    width: 48%;
+    width: 49%;
     /*background: aqua;*/
     flex-direction: column;
 }
@@ -144,7 +144,6 @@ textarea {
 
 .input-btn {
     margin: 5px 0;
-    width: 100px;
 }
 
 #lite-upload-select {

@@ -73,7 +73,12 @@ function renderIpynbSource(){
     data = $("#lite-input").val();
     res = analysisIpynbSource(data);
     $("#lite-output").empty();
-    $("#lite-output").append(res.join(''));
+    if (res.join('') != '') {
+        $("#lite-output").append(res.join(''));
+    } else {
+        $("#lite-output").append("在此显示解析后的结果...");
+    }
+    
     // first, find all the div.code blocks
     document.querySelectorAll('div.code').forEach(el => {
         // then highlight each
@@ -127,11 +132,17 @@ function fileUploadButtonReloadName() {
     
 } 
 
+function clearupInputTextArea() {
+    $("#lite-input").empty();
+    renderIpynbSource();
+}
+
 $(document).ready(function (){
     $("#lite-upload-btn").click(liteVersionCannotUploadFileAlert);
-    $("#download-btn").click(liteVersionCannotUploadFileAlert);
+    $("#output-btn-download").click(liteVersionCannotUploadFileAlert);
     $("#lite-upload-select-div").click(fileUploadButtonReload);
     $("#lite-input").keyup(renderIpynbSource);
     $("#lite-input").blur(renderIpynbSource);
-    $("#lite-btn").click(renderIpynbSource);
+    $("#input-btn-parse").click(renderIpynbSource);
+    $("#input-btn-cleanup").click(clearupInputTextArea);
 });
