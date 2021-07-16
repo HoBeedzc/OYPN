@@ -3,6 +3,16 @@
     src: url("../font/Merriweather-Regular.ttf");
 }
 
+@font-face {
+    font-family: Lato;
+    src: url("../font/Lato-Regular.ttf");
+}
+
+@font-face {
+    font-family: OpenSans;
+    src: url("../font/OpenSans-Regular.ttf");
+}
+
 html {
     height: 100%;
     width: 100%;
@@ -43,6 +53,29 @@ textarea {
     background: #ffede7;
     scrollbar-arrow-color:yellow;
     scrollbar-base-color:lightsalmon;
+    font-family: OpenSans;
+}
+
+#lite-input:focus {
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    box-shadow: inset 0 2px 2px rgba(0, 0, 0, .075), 0 0 10px rgb(255, 123, 0);
+    outline: none !important;
+}
+
+.lite-output {
+    width: 100%;
+    height: 100%;
+    border: 1px;
+    border-radius: 5px;
+    background: #ffede7;
+    scrollbar-arrow-color:yellow;
+    scrollbar-base-color:lightsalmon;
+    font-family: OpenSans;
+}
+
+#lite-output {
+    height: 100%;
+    background-color: #ffede7;
 }
 
 .main-body {

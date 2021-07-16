@@ -51,14 +51,14 @@ function analysisIpynbSource(data){
     for (j = 0,len=cells.length;j<len;j++) {
         if (cells[j].cell_type == "code") { // 代码单元格
             if (cells[j].execution_count != null) {
-                res.push("\n## In["+ cells[j].execution_count.toString() +"] Code cell\n");
+                res.push("<br>## In["+ cells[j].execution_count.toString() +"] Code cell<br>");
             } else {
-                res.push("\n## In[ ] Code cell\n");
+                res.push("<br>## In[ ] Code cell<br>");
             }
             cells[j] = lastRowAddNewLine(cells[j]);
             res.push.apply(res,cells[j].source);
         } else if (cells[j].cell_type == "markdown") { // markdowm 单元格
-            res.push("\n## Markdown cell\n");
+            res.push("<br>## Markdown cell<br>");
             cells[j] = lastRowAddNewLine(cells[j]);
             res.push.apply(res,cells[j].source);
         } else {
@@ -73,6 +73,11 @@ function renderIpynbSource(){
     data = $("#lite-input").val();
     res = analysisIpynbSource(data);
     $("#lite-output").text(res.join(''));
+    // first, find all the div.code blocks
+    document.querySelectorAll('div.code').forEach(el => {
+        // then highlight each
+        hljs.highlightElement(el);
+    });
 }
 
 $(function(){
@@ -106,6 +111,6 @@ $(document).ready(function (){
     $("#lite-upload-select").click(liteVersionCannotUploadFileAlert);
     $("#lite-upload-btn").click(liteVersionCannotUploadFileAlert);
     $("#download-btn").click(liteVersionCannotUploadFileAlert);
-    $("#lite-input").blur(renderIpynbSource);
+    $("#lite-input").keyup(renderIpynbSource);
     $("#lite-btn").click(renderIpynbSource);
 });
