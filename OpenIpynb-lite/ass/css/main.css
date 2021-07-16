@@ -91,6 +91,17 @@ textarea {
     margin: 10px;
 }
 
+#upload-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.upload-btn {
+    margin: 3px 5px;
+}
+
 .input {
     display: flex;
     height: 100%;
@@ -108,6 +119,7 @@ textarea {
 }
 
 .btn {
+    width: auto;
     transition-duration: .3s;
     cursor: pointer;
     color: #333333;
@@ -133,6 +145,10 @@ textarea {
 .input-btn {
     margin: 5px 0;
     width: 100px;
+}
+
+#lite-upload-select {
+    display: none;
 }
 
 label {
