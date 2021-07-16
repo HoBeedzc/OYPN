@@ -73,6 +73,11 @@ textarea {
     font-family: OpenSans;
 }
 
+#lite-output {
+    height: 100%;
+    background-color: #ffede7;
+}
+
 .main-body {
     height: 85%;
     display: flex;
