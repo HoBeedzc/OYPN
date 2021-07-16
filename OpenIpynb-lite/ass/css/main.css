@@ -76,10 +76,13 @@ textarea {
 #lite-output {
     height: 100%;
     background-color: #ffede7;
+    overflow: scroll;
+    border: 1px;
+    border-radius: 5px;
 }
 
 .main-body {
-    height: 85%;
+    height: 86%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -106,7 +109,6 @@ textarea {
     display: flex;
     height: 100%;
     width: 48%;
-    /*background: antiquewhite;*/
     flex-direction: column;
 }
 
@@ -114,7 +116,6 @@ textarea {
     display: flex;
     height: 100%;
     width: 49%;
-    /*background: aqua;*/
     flex-direction: column;
 }
 
@@ -175,4 +176,16 @@ a {
 a:hover {
     color: coral;
     font-size: 30px;
+}
+
+.code {
+    white-space: pre-wrap;
+    border-style:solid;
+    border-color:#ffede7;
+    border-width: 5px;
+    border-radius: 10px !important;
+}
+
+.hljs {
+    background-color: blanchedalmond;
 }

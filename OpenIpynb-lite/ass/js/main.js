@@ -23,10 +23,10 @@ function lastRowAddNewLine(cell) {
     lastRow = cell.source.pop();
     // console.log(lastRow);
     if (lastRow == undefined) {
-        lastRow = '<br>';
+        lastRow = '\n</div>';
     }
-    if (lastRow.charAt(lastRow.length -1) != '<br>') {
-        lastRow += '<br>';
+    if (lastRow.charAt(lastRow.length -1) != '\n</div>') {
+        lastRow += '<br></div>';
     }
     cell.source.push(lastRow);
     return cell;
@@ -51,14 +51,14 @@ function analysisIpynbSource(data){
     for (j = 0,len=cells.length;j<len;j++) {
         if (cells[j].cell_type == "code") { // 代码单元格
             if (cells[j].execution_count != null) {
-                res.push("<br>## In["+ cells[j].execution_count.toString() +"] Code cell<br>");
+                res.push("<div class=\"code language-python\">## In["+ cells[j].execution_count.toString() +"] Code cell\n");
             } else {
-                res.push("<br>## In[ ] Code cell<br>");
+                res.push("<div class=\"code language-python\">## In[ ] Code cell\n");
             }
             cells[j] = lastRowAddNewLine(cells[j]);
             res.push.apply(res,cells[j].source);
         } else if (cells[j].cell_type == "markdown") { // markdowm 单元格
-            res.push("<br>## Markdown cell<br>");
+            res.push("<div class=\"code language-markdown \">## Markdown cell\n");
             cells[j] = lastRowAddNewLine(cells[j]);
             res.push.apply(res,cells[j].source);
         } else {
@@ -74,7 +74,7 @@ function renderIpynbSource(){
     res = analysisIpynbSource(data);
     $("#lite-output").empty();
     if (res.join('') != '') {
-        $("#lite-output").append(res.join(''));
+        $("#lite-output").append(res.join('<br>'));
     } else {
         $("#lite-output").append("在此显示解析后的结果...");
     }
@@ -133,7 +133,7 @@ function fileUploadButtonReloadName() {
 } 
 
 function clearupInputTextArea() {
-    $("#lite-input").empty();
+    $("#lite-input").val('');
     renderIpynbSource();
 }
 
