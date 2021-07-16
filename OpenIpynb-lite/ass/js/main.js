@@ -23,10 +23,10 @@ function lastRowAddNewLine(cell) {
     lastRow = cell.source.pop();
     // console.log(lastRow);
     if (lastRow == undefined) {
-        lastRow = '\n';
+        lastRow = '<br>';
     }
-    if (lastRow.charAt(lastRow.length -1) != '\n') {
-        lastRow += '\n';
+    if (lastRow.charAt(lastRow.length -1) != '<br>') {
+        lastRow += '<br>';
     }
     cell.source.push(lastRow);
     return cell;
@@ -72,7 +72,8 @@ function renderIpynbSource(){
     var data,res;
     data = $("#lite-input").val();
     res = analysisIpynbSource(data);
-    $("#lite-output").text(res.join(''));
+    $("#lite-output").empty();
+    $("#lite-output").append(res.join(''));
     // first, find all the div.code blocks
     document.querySelectorAll('div.code').forEach(el => {
         // then highlight each
