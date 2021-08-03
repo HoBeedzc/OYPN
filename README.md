@@ -3,11 +3,19 @@ a toolkit to open the .ipynb source code in browser as a read-only mode. Not nee
 
 ## version
 
-- Openipynb CLI 
-- OpenIpynb Lite
-- OpenIpynb
-- OpenIpynb Pro
+- OYPN CLI 
+- OYPN Lite
+- OYPN
+- OYPN Pro
 
-## lite version
+## Lite Version
 
-you can use OpenIpynb lite through [here](https://blog.hobeedzc.cn/openipynb/OpenIpynb-lite/)
+You can use OYPN Lite through [here](https://oypn.hobeedzc.cn/OpenIpynb-lite/)
+
+## Standard Version
+
+Not ready now
+
+## Pro Version
+
+Not ready now
