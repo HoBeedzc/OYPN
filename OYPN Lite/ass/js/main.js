@@ -14,7 +14,7 @@
 "use strict";
 
 function liteVersionCannotUploadFileAlert(){
-    alert("您正在使用的 OYPN Lite 暂不支持该功能。\n如需进行文件上传，请使用 OYPN 或 OYPN Pro");
+    alert("您正在使用的 OYPN Lite 暂不支持该功能。\n如需继续操作，请使用 OYPN Std 或 OYPN Pro");
     return false;
 }
 
