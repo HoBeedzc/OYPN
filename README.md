@@ -11,6 +11,7 @@ a toolkit to open the .ipynb source code in browser as a read-only mode. Not nee
 ## Lite Version
 
 You can use OYPN Lite through [here](https://oypn.hobeedzc.cn/OpenIpynb-lite/)
+More info
 
 ## Standard Version
 

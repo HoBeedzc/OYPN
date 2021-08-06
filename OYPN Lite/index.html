@@ -31,143 +31,7 @@
   <div class="main-body">
    <div class="input">
      <label for="lite-input">源码：Your source codes here</label>
-     <textarea id="lite-input" name="lite-input" placeholder="在此粘贴 iPynb 源码...">
-{
- "cells": [
-  {
-   "cell_type": "code",
-   "execution_count": 11,
-   "source": [
-    "from pyecharts import options as opts\n",
-    "from pyecharts.charts import Map\n",
-    "from pyecharts.faker import Faker\n",
-    "\n",
-    "provinces = ['广东','江苏','山东','浙江','北京','河南','上海','四川','河北','福建']\n",
-    "values = [10,9,8,7,6,5,4,3,2,1]\n",
-    "\n",
-    "c = (\n",
-    "    Map()\n",
-    "    .add(\"李宁\", [list(z) for z in zip(provinces,values)], \"china\")\n",
-    "    .set_global_opts(\n",
-    "        title_opts=opts.TitleOpts(title=\"各省份搜索量\"),\n",
-    "        visualmap_opts=opts.VisualMapOpts(max_=10),\n",
-    "    )\n",
-    "    .set_series_opts(label_opts=opts.LabelOpts(is_show=False))\n",
-    "    .render(\"map_base.html\")\n",
-    ")"
-   ],
-   "outputs": [
-    {
-     "output_type": "stream",
-     "name": "stderr",
-     "text": [
-      "D:\\Downloads\\Anaconda\\anaconda\\lib\\site-packages\\pyecharts\\charts\\chart.py:14: PendingDeprecationWarning: pyecharts 所有图表类型将在 v1.9.0 版本开始强制使用 ChartItem 进行数据项配置 :)\n",
-      "  super().__init__(init_opts=init_opts)\n"
-     ]
-    }
-   ],
-   "metadata": {}
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "source": [
-    "import pandas as pd # unrun"
-   ],
-   "outputs": [],
-   "metadata": {}
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "source": [],
-   "outputs": [],
-   "metadata": {}
-  },
-  {
-   "cell_type": "markdown",
-   "source": [
-    "# This is a Markdown"
-   ],
-   "metadata": {}
-  },
-  {
-   "cell_type": "markdown",
-   "source": [
-    "## This is a un run markdown"
-   ],
-   "metadata": {}
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 6,
-   "source": [
-    "[list(z) for z in zip(Faker.provinces, Faker.values())]"
-   ],
-   "outputs": [
-    {
-     "output_type": "execute_result",
-     "data": {
-      "text/plain": [
-       "[['广东', 84],\n",
-       " ['北京', 56],\n",
-       " ['上海', 92],\n",
-       " ['江西', 123],\n",
-       " ['湖南', 59],\n",
-       " ['浙江', 150],\n",
-       " ['江苏', 55]]"
-      ]
-     },
-     "metadata": {},
-     "execution_count": 6
-    }
-   ],
-   "metadata": {}
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "source": [],
-   "outputs": [],
-   "metadata": {}
-  }
- ],
- "metadata": {
-  "kernelspec": {
-   "display_name": "Python 3",
-   "language": "python",
-   "name": "python3"
-  },
-  "language_info": {
-   "codemirror_mode": {
-    "name": "ipython",
-    "version": 3
-   },
-   "file_extension": ".py",
-   "mimetype": "text/x-python",
-   "name": "python",
-   "nbconvert_exporter": "python",
-   "pygments_lexer": "ipython3",
-   "version": "3.7.0"
-  },
-  "toc": {
-   "base_numbering": 1,
-   "nav_menu": {},
-   "number_sections": true,
-   "sideBar": true,
-   "skip_h1_title": false,
-   "title_cell": "Table of Contents",
-   "title_sidebar": "Contents",
-   "toc_cell": false,
-   "toc_position": {},
-   "toc_section_display": true,
-   "toc_window_display": false
-  }
- },
- "nbformat": 4,
- "nbformat_minor": 2
-}
-     </textarea>
+     <textarea id="lite-input" name="lite-input" placeholder="在此粘贴 iPynb 源码..."></textarea>
      <div id="input-btns">
       <button type="button" id="input-btn-example" class="btn input-btn">示例</button>
       <button type="button" id="input-btn-parse" class="btn input-btn">解析</button>
@@ -185,7 +49,7 @@
 
  <footer>
   如果您在使用过程中遇到任何问题请联系：<a href="mailto:oypn@hobeedzc.cn">OYPN@hobeedzc.cn</a> ，我们将在第一时间与您取得联系，感谢您的支持！<br>
-  OYPN Lite Version: 0.0.1 beta &nbsp &nbsp
+  OYPN Lite Version: 1.0.0 beta &nbsp &nbsp
   友情链接：
   <a href="https://github.com/HoBeedzc"> GitHub</a>
   <a href="https://blog.hobeedzc.cn/"> Blog</a>
