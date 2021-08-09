@@ -144,7 +144,8 @@ function clearupInputTextArea() {
 
 function fileReadCompleted() {
     // 当读取完成时，内容只在`reader.result`中
-    console.log(this.result);
+    $("#lite-input").val(this.result);
+    renderIpynbSource();
 }
 
 // upload a file from local machine
@@ -160,10 +161,11 @@ function uploadFile() {
     filename = filepath.substring(filepath.lastIndexOf("\\")+1);
     file_extension_name = filename.substring(filename.lastIndexOf(".")+1);
     if (file_extension_name == "ipynb") {
-        file = new File([filepath], filename, {type: "text/plain"});
+        // file = new File([filepath], filename, {type: "text/plain"});
+        file = $("#lite-upload-select").prop('files')[0];
         const reader = new FileReader();
         reader.onload = fileReadCompleted;
-        reader.readAsText(file);
+        reader.readAsBinaryString(file);
     } else {
         alert("请选择ipynb文件！");
         return;
@@ -191,7 +193,7 @@ function downloadCode() {
 }
 
 $(document).ready(function (){
-    $("#lite-upload-btn").click(liteVersionCannotUploadFileAlert);
+    $("#lite-upload-btn").click(uploadFile);
     $("#output-btn-download").click(liteVersionCannotUploadFileAlert);
     $("#lite-upload-select-div").click(fileUploadButtonReload);
     $("#lite-input").keyup(renderIpynbSource);
