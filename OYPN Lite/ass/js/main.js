@@ -161,7 +161,6 @@ function uploadFile() {
     filename = filepath.substring(filepath.lastIndexOf("\\")+1);
     file_extension_name = filename.substring(filename.lastIndexOf(".")+1);
     if (file_extension_name == "ipynb") {
-        // file = new File([filepath], filename, {type: "text/plain"});
         file = $("#lite-upload-select").prop('files')[0];
         const reader = new FileReader();
         reader.onload = fileReadCompleted;
@@ -183,18 +182,37 @@ function renderTemplateIpynb() {
     return;
 }
 
-// Downlaod render code.py
 function downloadCode() {
-    // 文件下载 参考自 https://juejin.cn/post/6844903763359039501
-    const textarea = $('#lite-output');
-    // const filename = generateFilename('textareaName', '.txt');
-    const textBlob = new Blob([textarea.value], {type: "text/plain;charset=utf-8"});
-    saveAs(textBlob, 'filename.txt');
+
+    var filepath = $("#lite-upload-select").val();
+    var filename = "";
+    if (filepath == "") {
+        filename = "OYPN";
+    } else {
+        filename = filepath.substring(filepath.lastIndexOf("\\")+1,filepath.lastIndexOf("."));
+    }
+    filename += "-SourceCode.py"
+
+    var blob = new Blob([$('#lite-output').html()], {type: 'text/plain;charset=utf-8'});
+    var url = window.URL.createObjectURL(blob);
+    var a = document.createElement('a');
+
+    a.style = "display: none";
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+
+    setTimeout(function () {
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+    }, 5);
 }
+
 
 $(document).ready(function (){
     $("#lite-upload-btn").click(uploadFile);
-    $("#output-btn-download").click(liteVersionCannotUploadFileAlert);
+    $("#output-btn-download").click(downloadCode);
     $("#lite-upload-select-div").click(fileUploadButtonReload);
     $("#lite-input").keyup(renderIpynbSource);
     $("#lite-input").blur(renderIpynbSource);
