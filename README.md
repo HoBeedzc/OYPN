@@ -5,7 +5,7 @@ a toolkit to open the .ipynb source code in browser as a read-only mode. Not nee
 
 ## How to use OYPN
 
-The easiest way to use OYPN is to visit this [link](https://oypn.hobeedzc.cn/OYPN Lite/)
+The easiest way to use OYPN is to visit this [link](https://oypn.hobeedzc.cn/OYPN%20Lite/)
 
 ## version
 
@@ -16,7 +16,7 @@ The easiest way to use OYPN is to visit this [link](https://oypn.hobeedzc.cn/OYP
 
 ### Lite Version
 
-You can use OYPN Lite through [here](https://oypn.hobeedzc.cn/OYPN Lite/)
+You can use OYPN Lite through [here](https://oypn.hobeedzc.cn/OYPN%20Lite/)
 More info
 
 ### Standard Version
