@@ -48,6 +48,11 @@ function analysisIpynbSource(data){
     }
     
     cells = data.cells; // 否则正常返回
+    
+    if (cells == undefined) { // 若没有cells，则返回空
+        return ["解析时遇到错误，请确认格式后重新输入！"];
+    }
+    
     for (j = 0,len=cells.length;j<len;j++) {
         if (cells[j].cell_type == "code") { // 代码单元格
             if (cells[j].execution_count != null) {
@@ -137,6 +142,54 @@ function clearupInputTextArea() {
     renderIpynbSource();
 }
 
+function fileReadCompleted() {
+    // 当读取完成时，内容只在`reader.result`中
+    console.log(this.result);
+}
+
+// upload a file from local machine
+function uploadFile() {
+    var filepath,filename,file_extension_name,file;
+    filepath = $("#lite-upload-select").val();
+
+    if (filepath == "") {
+        alert("请选择一个文件！");
+        return;
+    }
+
+    filename = filepath.substring(filepath.lastIndexOf("\\")+1);
+    file_extension_name = filename.substring(filename.lastIndexOf(".")+1);
+    if (file_extension_name == "ipynb") {
+        file = new File([filepath], filename, {type: "text/plain"});
+        const reader = new FileReader();
+        reader.onload = fileReadCompleted;
+        reader.readAsText(file);
+    } else {
+        alert("请选择ipynb文件！");
+        return;
+    }
+}
+
+// render template.ipynb
+function renderTemplateIpynb() {
+    var url = "./ass/doc/template.ipynb";
+    var ajaxobj = $.ajax({url:url,async:false});
+    var data = ajaxobj.responseText;
+    
+    $("#lite-input").val(data);
+    renderIpynbSource();
+    return;
+}
+
+// Downlaod render code.py
+function downloadCode() {
+    // 文件下载 参考自 https://juejin.cn/post/6844903763359039501
+    const textarea = $('#lite-output');
+    // const filename = generateFilename('textareaName', '.txt');
+    const textBlob = new Blob([textarea.value], {type: "text/plain;charset=utf-8"});
+    saveAs(textBlob, 'filename.txt');
+}
+
 $(document).ready(function (){
     $("#lite-upload-btn").click(liteVersionCannotUploadFileAlert);
     $("#output-btn-download").click(liteVersionCannotUploadFileAlert);
@@ -145,4 +198,5 @@ $(document).ready(function (){
     $("#lite-input").blur(renderIpynbSource);
     $("#input-btn-parse").click(renderIpynbSource);
     $("#input-btn-cleanup").click(clearupInputTextArea);
+    $("#input-btn-example").click(renderTemplateIpynb);
 });
