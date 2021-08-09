@@ -1,6 +1,12 @@
 # OYPN - Open Your Python Notebook！
 a toolkit to open the .ipynb source code in browser as a read-only mode. Not need a python kernel.
 
+## What is OYPN
+
+## How to use OYPN
+
+The easiest way to use OYPN is to visit this [link](https://oypn.hobeedzc.cn/OYPN Lite/)
+
 ## version
 
 - OYPN CLI 
@@ -8,15 +14,23 @@ a toolkit to open the .ipynb source code in browser as a read-only mode. Not nee
 - OYPN Std
 - OYPN Pro
 
-## Lite Version
+### Lite Version
 
-You can use OYPN Lite through [here](https://oypn.hobeedzc.cn/OpenIpynb-lite/)
+You can use OYPN Lite through [here](https://oypn.hobeedzc.cn/OYPN Lite/)
 More info
 
-## Standard Version
+### Standard Version
 
 Not ready now
 
-## Pro Version
+Tips : The source code of OYPN Std may not be public.
+
+### Pro Version
 
 Not ready now
+
+Tips : The source code of OYPN Pro may not be public.
+
+## Other Language
+
+- 简体中文[README](README.zh-cn.md)
