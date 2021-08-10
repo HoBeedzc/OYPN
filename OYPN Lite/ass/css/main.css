@@ -155,10 +155,10 @@ textarea {
     border-radius: 5px !important;
 }
 
-.btn:hover {
+/* .btn:hover {
     color: white;
     background: coral;
-}
+} */
 
 .input-btn {
     margin: 5px 0;
@@ -192,8 +192,8 @@ a {
 
 a:hover {
     color: coral;
-    font-size: 30px;
-}
+    /* font-size: 30px; */
+} 
 
 .code {
     white-space: pre-wrap;
@@ -205,4 +205,52 @@ a:hover {
 
 .hljs {
     background-color: blanchedalmond;
+}
+
+.output-btn {
+    margin: 5px 0;
+}
+
+.btn-select-group {
+    display: flex;
+    transition-duration: .3s;
+    cursor: pointer;
+    color: #333333;
+    background-color: #eee;
+    font-size: 14px;
+    margin-left: 0;
+    line-height: 100%;
+    text-decoration: none;
+    font-weight: 400;
+    border-style:solid;
+    border-color:#ffede7;
+    border-width: 2px;
+    border-radius: 5px !important;
+}
+
+#output-btn-select-group {
+    width: 120px;
+    height: 30px;
+    transition-duration: .3s;
+}
+
+.btn-select-group-btn {
+    border: 0;
+    font-size: 14px;
+    padding: 4px 0px 4px 5px;
+    font-weight: 400;
+    cursor: pointer;
+    background-color: #eee;
+}
+
+.btn-select-group-select {
+    border: 0;
+    font-size: 14px;
+    padding: 4px 5px;
+    font-weight: 400;
+    background-color: #eee;
+}
+
+.btn-select-group-select:focus {
+    outline: none !important;
 }

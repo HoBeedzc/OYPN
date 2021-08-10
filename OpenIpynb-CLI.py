@@ -4,7 +4,7 @@ import sys
 
 filepath = sys.argv[1]
 
-with open(filepath,'r') as f:
+with open(filepath, 'r') as f:
     data_str = ""
     for i in f.readlines():
         data_str += i
