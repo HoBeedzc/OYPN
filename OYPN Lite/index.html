@@ -19,13 +19,19 @@
    <div class="title">OYPN - Open Your iPython Notebook!</div>
    <div>
     <div style="text-align: center;">请将您的ipynb源码复制到文本框或进行文件上传</div>
-    <form action="#" method="post" id="upload-form">
+    <form action="#" method="get" id="upload-form">
       <input type="file" id="lite-upload-select" class="btn"/>
       <div class="info-box" id="lite-upload-select-file-name">未选择任何文件</div>
       <div class="btn upload-btn" id="lite-upload-select-div">选择文件</div>
-      <div class="btn upload-btn" id="lite-upload-encode-div">编码格式</div>
+      <div class="btn-select-group upload-btn" id="upload-btn-select-group" style="padding:1px">
+        <button type="button" id="upload-btn-download" class="btn-select-group-btn">编码格式</button>
+        <select id="upload-select-download" class="btn-select-group-select">
+          <option value="utf8">utf-8</option>
+          <option value="gbk">gbk</option>
+          <option value="gb2312">gb2312</option>
+        </select>
+       </div>
       <div class="btn upload-btn" id="lite-upload-btn">上传</div>
-      <!--input type="submit" value="上传" id="lite-upload-btn" class="btn upload-btn"/-->
     </form>
     </div>
   </div>
@@ -45,8 +51,8 @@
      <div id="lite-output" readonly="readonly" name="lite-output"> 在此显示解析后的结果... </div>
      <div id="output-btns">
        <div class="btn-select-group output-btn" id="output-btn-select-group">
-        <button type="button" id="output-btn-download">导出为</button>
-        <select id="output-select-download">
+        <button class="btn-select-group-btn" type="button" id="output-btn-download">导出为</button>
+        <select class="btn-select-group-select" id="output-select-download">
           <option value="py">.py</option>
           <option value="ipynb">.ipynb</option>
           <option value="html">.html</option>
