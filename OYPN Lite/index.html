@@ -23,7 +23,7 @@
       <input type="file" id="lite-upload-select" class="btn"/>
       <div class="info-box" id="lite-upload-select-file-name">未选择任何文件</div>
       <div class="btn upload-btn" id="lite-upload-select-div">选择文件</div>
-      <!--div class="btn upload-btn" id="lite-upload-encode-div">编码格式</div-->
+      <div class="btn upload-btn" id="lite-upload-encode-div">编码格式</div>
       <div class="btn upload-btn" id="lite-upload-btn">上传</div>
       <!--input type="submit" value="上传" id="lite-upload-btn" class="btn upload-btn"/-->
     </form>
@@ -43,8 +43,16 @@
    <div class="output">
      <label for="lite-output">解析：Your iPython notebook cells</label>
      <div id="lite-output" readonly="readonly" name="lite-output"> 在此显示解析后的结果... </div>
-     <div id="input-btns">
-      <button type="button" id="output-btn-download" class="btn input-btn">导出</button>
+     <div id="output-btns">
+       <div class="btn-select-group output-btn" id="output-btn-select-group">
+        <button type="button" id="output-btn-download">导出为</button>
+        <select id="output-select-download">
+          <option value="py">.py</option>
+          <option value="ipynb">.ipynb</option>
+          <option value="html">.html</option>
+          <option value="markdowm" disabled>.md</option>
+        </select>
+       </div>
      </div>
    </div>
   </div>
